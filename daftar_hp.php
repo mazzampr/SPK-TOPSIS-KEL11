@@ -213,54 +213,54 @@ include('koneksi.php');
 	<!-- Daftar hp End -->
 
 	<!-- Daftar hp Start -->
-	<div style="background-color: #efefef">
-		<div class="container">
-		    <div class="section-card" style="padding: 1px 20% 24px 20%;">
-				<ul>
-				    <li>
-						<div class="row">
-							<div class="card">
-								<div class="card-content" style="padding-top: 10px;">
-									<center><h5 style="margin-bottom: 10px;">Analisa Smartphone</h5></center>
-									<table class="responsive-table">
-									
-											<thead style="border-top: 1px solid #d0d0d0;">
-												<tr>
-													<th><center>Alternatif</center></th>
-													<th><center>C1 (Cost)</center></th>
-													<th><center>C2 (Benefit)</center></th>
-													<th><center>C3 (Benefit)</center></th>
-													<th><center>C4 (Benefit)</center></th>
-													<th><center>C5 (Benefit)</center></th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php
-												$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
-												$no=1;
-												while ($data=mysqli_fetch_array($query)) {
-												?>
-												<tr>
-													<td><center><?php echo "A",$no ?></center></td>
-													<td><center><?php echo $data['harga_angka'] ?></center></td>
-													<td><center><?php echo $data['ram_angka'] ?></center></td>
-													<td><center><?php echo $data['memori_angka'] ?></center></td>
-													<td><center><?php echo $data['processor_angka'] ?></center></td>
-													<td><center><?php echo $data['kamera_angka'] ?></center></td>
-												</tr>
-												<?php
-														$no++;}
-												?>
-											</tbody>
-									</table>
-									</div>
-							</div>
-						</div>
-				    </li>
-				</ul>	     
-	    	</div>
-		</div>
-	</div>
+<!--	<div style="background-color: #efefef">-->
+<!--		<div class="container">-->
+<!--		    <div class="section-card" style="padding: 1px 20% 24px 20%;">-->
+<!--				<ul>-->
+<!--				    <li>-->
+<!--						<div class="row">-->
+<!--							<div class="card">-->
+<!--								<div class="card-content" style="padding-top: 10px;">-->
+<!--									<center><h5 style="margin-bottom: 10px;">Analisa Smartphone</h5></center>-->
+<!--									<table class="responsive-table">-->
+<!--									-->
+<!--											<thead style="border-top: 1px solid #d0d0d0;">-->
+<!--												<tr>-->
+<!--													<th><center>Alternatif</center></th>-->
+<!--													<th><center>C1 (Cost)</center></th>-->
+<!--													<th><center>C2 (Benefit)</center></th>-->
+<!--													<th><center>C3 (Benefit)</center></th>-->
+<!--													<th><center>C4 (Benefit)</center></th>-->
+<!--													<th><center>C5 (Benefit)</center></th>-->
+<!--												</tr>-->
+<!--											</thead>-->
+<!--											<tbody>-->
+<!--												--><?php
+//												$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
+//												$no=1;
+//												while ($data=mysqli_fetch_array($query)) {
+//												?>
+<!--												<tr>-->
+<!--													<td><center>--><?php //echo "A",$no ?><!--</center></td>-->
+<!--													<td><center>--><?php //echo $data['harga_angka'] ?><!--</center></td>-->
+<!--													<td><center>--><?php //echo $data['ram_angka'] ?><!--</center></td>-->
+<!--													<td><center>--><?php //echo $data['memori_angka'] ?><!--</center></td>-->
+<!--													<td><center>--><?php //echo $data['processor_angka'] ?><!--</center></td>-->
+<!--													<td><center>--><?php //echo $data['kamera_angka'] ?><!--</center></td>-->
+<!--												</tr>-->
+<!--												--><?php
+//														$no++;}
+//												?>
+<!--											</tbody>-->
+<!--									</table>-->
+<!--									</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--				    </li>-->
+<!--				</ul>	     -->
+<!--	    	</div>-->
+<!--		</div>-->
+<!--	</div>-->
 	<!-- Daftar hp End -->
 
 	<!-- Modal Start -->

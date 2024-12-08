@@ -1,6 +1,6 @@
 <?php
 
-$host = "localhost:3360";
+$host = "localhost:3306";
 $user = "root";
 $pass = "";
 $name = "data_hp";

@@ -7,7 +7,7 @@ $W1	= $_POST['harga'];
 $W2	= $_POST['ram'];
 $W3	= $_POST['memori'];
 $W4	= $_POST['processor'];
-$W5	= $_POST['kamera'];
+$W5	= $_POST['kamera_depan'];
 
 //Pembagi Normalisasi
 function pembagiNM($matrik){

@@ -3,6 +3,7 @@ session_start();
 include('koneksi.php');
 ?>
 
+
 <?php 
 	if(isset($_POST["tambah_hp"])){
 		$nama      = $_POST["nama"];
@@ -10,87 +11,24 @@ include('koneksi.php');
 		$ram       = $_POST["ram"];
 		$memori    = $_POST["memori"];
 		$processor = $_POST["processor"];
-		$kamera    = $_POST["kamera"];
-		
-		$harga_angka = $ram_angka = $memori_angka = $processor_angka = $kamera_angka = 0;
-
-		if($harga < 1000000){
-			$harga_angka = 5;
-		} 
-		elseif($harga >= 1000000 && $harga <= 3000000){
-			$harga_angka = 4;
-		}
-		elseif($harga > 3000000 && $harga <= 4000000){
-			$harga_angka = 3;
-		}
-		elseif($harga > 4000000 && $harga <= 5000000){
-			$harga_angka = 2;
-		}
-		elseif($harga > 5000000){
-			$harga_angka = 1;
-		}
+		$kamera_depan    = $_POST["kamera_depan"];
+		$kamera_belakang = $_POST["kamera_belakang"];
+		$baterai = $_POST["baterai"];
+		$garansi = $_POST["garansi"];
 
 
-		if($ram < 6){
-			$ram_angka = $ram;
-		}
-		elseif($ram == 6){
-			$ram_angka = 5;
-		}
-
-
-		if($memori == 4){
-			$memori_angka = 1;
-		}
-		elseif($memori == 8){
-			$memori_angka = 2;
-		}
-		elseif($memori == 16){
-			$memori_angka = 3;
-		}
-		elseif($memori == 32){
-			$memori_angka = 4;
-		}
-		elseif($memori == 64){
-			$memori_angka = 5;
-		}
-
-
-		if($processor == "Dualcore"){
-			$processor_angka = 1;
-		}
-		elseif($processor == "Quadcore"){
-			$processor_angka = 3;
-		}
-		elseif($processor == "Octacore"){
-			$processor_angka = 5;
-		}
-
-
-		if($kamera == 8){
-			$kamera_angka = 1;
-		}
-		elseif($kamera == 13){
-			$kamera_angka = 3;
-		}
-		elseif($kamera == 16){
-			$kamera_angka = 5;
-		}
-
-		$sql = "INSERT INTO `data_hp` (`id_hp`, `nama_hp`, `harga_hp`, `ram_hp`, `memori_hp`, `processor_hp`, `kamera_hp`, `harga_angka`, `ram_angka`, `memori_angka`, `processor_angka`, `kamera_angka`) 
-				VALUES (NULL, :nama_hp, :harga_hp, :ram_hp, :memori_hp, :processor_hp, :kamera_hp, :harga_angka, :ram_angka, :memori_angka, :processor_angka, :kamera_angka)";
+		$sql = "INSERT INTO `data_hp` (`id_hp`, `nama_hp`, `harga_hp`, `ram_hp`, `memori_hp`, `processor_hp`, `kamera_depan` , `kamera_belakang`, `baterai`, `garansi`) 
+				VALUES (NULL, :nama_hp, :harga_hp, :ram_hp, :memori_hp, :processor_hp, :kamera_depan, :kamera_belakang, :baterai, :garansi)";
 		$stmt = $db->prepare($sql);
 		$stmt->bindValue(':nama_hp', $nama);
 		$stmt->bindValue(':harga_hp', $harga);
 		$stmt->bindValue(':ram_hp', $ram);
 		$stmt->bindValue(':memori_hp', $memori);
 		$stmt->bindValue(':processor_hp', $processor);
-		$stmt->bindValue(':kamera_hp', $kamera);
-		$stmt->bindValue(':harga_angka', $harga_angka);
-		$stmt->bindValue(':ram_angka', $ram_angka);
-		$stmt->bindValue(':memori_angka', $memori_angka);
-		$stmt->bindValue(':processor_angka', $processor_angka);
-		$stmt->bindValue(':kamera_angka', $kamera_angka);
+		$stmt->bindValue(':kamera_depan', $kamera_depan);
+		$stmt->bindValue(':kamera_belakang', $kamera_belakang);
+		$stmt->bindValue(':baterai', $baterai);
+		$stmt->bindValue(':garansi', $garansi);
 		$stmt->execute();
 	}
 
@@ -168,7 +106,10 @@ include('koneksi.php');
 													<th><center>RAM HP</center></th>
 													<th><center>Memori HP</center></th>
 													<th><center>Processor HP</center></th>
-													<th><center>Kamera HP</center></th>
+													<th><center>Kamera Depan</center></th>
+													<th><center>Kamera Belakang</center></th>
+													<th><center>Baterai</center></th>
+													<th><center>Garansi</center></th>
 													<th><center>Hapus</center></th>
 												</tr>
 											</thead>
@@ -185,7 +126,10 @@ include('koneksi.php');
 													<td><center><?php echo $data['ram_hp']," GB" ?></center></td>
 													<td><center><?php echo $data['memori_hp']," GB" ?></center></td>
 													<td><center><?php echo $data['processor_hp'] ?></center></td>
-													<td><center><?php echo $data['kamera_hp']," MP" ?></center></td>
+													<td><center><?php echo $data['kamera_depan']," MP" ?></center></td>
+													<td><center><?php echo $data['kamera_belakang']," MP" ?></center></td>
+													<td><center><?php echo $data['baterai']," mAh" ?></center></td>
+													<td><center><?php echo $data['garansi']," Tahun" ?></center></td>
 													<td>
 														<center>
 															<form method="POST">
@@ -269,12 +213,25 @@ include('koneksi.php');
 											<b>Processor</b>
 										</div>
 										<div class="col s6">
-											<select style="display: block; margin-bottom: 4px;" required name="processor">
-												<option value = "Dualcore">Dualcore</option>
-												<option value = "Quadcore">Quadcore</option>
-												<option value = "Octacore">Octacore</option>
+											<select style="display: block; margin-bottom: 4px;" required name="processor" id="processor">
+												<?php
+												$result = mysqli_query($selectdb, "SELECT chipset FROM nanoreview ORDER BY chipset ASC");
+
+												if ($result) {
+													if (mysqli_num_rows($result) > 0) {
+														while ($row = mysqli_fetch_assoc($result)) {
+															echo '<option value="' . htmlspecialchars($row['chipset']) . '">' . htmlspecialchars($row['chipset']) . '</option>';
+														}
+													} else {
+														echo '<option value="">No processors available</option>';
+													}
+												} else {
+													echo '<option value="">Error loading database</option>';
+												}
+												?>
 											</select>
 										</div>
+
 
 										<div class="col s6" style="margin-top: 10px;">
 											<b>Kamera</b>

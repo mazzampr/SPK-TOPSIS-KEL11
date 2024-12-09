@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2018 at 01:57 AM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Waktu pembuatan: 09 Des 2024 pada 06.33
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,70 +18,64 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hp`
+-- Database: `data_hp`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_hp`
+-- Struktur dari tabel `data_hp`
 --
 
 CREATE TABLE `data_hp` (
   `id_hp` int(4) NOT NULL,
-  `nama_hp` varchar(256) COLLATE utf8_bin NOT NULL,
-  `harga_hp` varchar(64) COLLATE utf8_bin NOT NULL,
-  `ram_hp` varchar(64) COLLATE utf8_bin NOT NULL,
-  `memori_hp` varchar(64) COLLATE utf8_bin NOT NULL,
-  `processor_hp` varchar(64) COLLATE utf8_bin NOT NULL,
-  `kamera_hp` varchar(64) COLLATE utf8_bin NOT NULL,
-  `harga_angka` varchar(64) COLLATE utf8_bin NOT NULL,
-  `ram_angka` varchar(64) COLLATE utf8_bin NOT NULL,
-  `memori_angka` varchar(64) COLLATE utf8_bin NOT NULL,
-  `processor_angka` varchar(64) COLLATE utf8_bin NOT NULL,
-  `kamera_angka` varchar(64) COLLATE utf8_bin NOT NULL
+  `nama_hp` varchar(256) NOT NULL,
+  `harga_hp` varchar(64) NOT NULL,
+  `ram_hp` varchar(64) NOT NULL,
+  `memori_hp` varchar(64) NOT NULL,
+  `processor_hp` varchar(64) NOT NULL,
+  `kamera_depan` varchar(64) NOT NULL,
+  `kamera_belakang` varchar(10) NOT NULL,
+  `baterai` varchar(10) NOT NULL,
+  `garansi` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `data_hp`
+-- Dumping data untuk tabel `data_hp`
 --
 
-INSERT INTO `data_hp` (`id_hp`, `nama_hp`, `harga_hp`, `ram_hp`, `memori_hp`, `processor_hp`, `kamera_hp`, `harga_angka`, `ram_angka`, `memori_angka`, `processor_angka`, `kamera_angka`) VALUES
-(1, 'Oppo Neo 7', '1700000', '1', '16', 'Quadcore', '8', '4', '1', '3', '3', '3'),
-(2, 'Mito A880', '550000\r\n', '1', '8', 'Quadcore', '5', '5', '1', '2', '3', '1'),
-(3, 'Samsung Galaxy Note 9', '11200000\r\n', '6', '128', 'Octacore', '12', '1', '5', '5', '5', '3'),
-(4, 'Oppo A83', '1899000', '3', '32', 'Octacore', '13', '4', '3', '4', '4', '3'),
-(5, 'Honor 8x', '3649000\r\n', '4', '128', 'Octacore', '20', '3', '4', '5', '5', '5'),
-(6, 'Sony Xperia Z1', '1250000', '3', '32', 'Quadcore', '20.7', '4', '3', '4', '3', '5'),
-(7, 'ASIAFONE ULTIMA', '749000\r\n', '1', '8', 'Quadcore', '5', '5', '1', '2', '3', '1'),
-(8, 'LG K4 LTE', '745000\r\n', '1', '8', 'Quadcore', '5', '5', '1', '2', '3', '1'),
-(9, 'Google Pixel 2 XL', '7200000', '4', '64', 'Octacore', '12', '5', '4', '5', '5', '3'),
-(10, 'Xiaomi Redmi Note 4x', '1530000', '3', '32', 'Octacore', '13', '4', '3', '4', '5', '3'),
-(11, 'Realme 2 Pro', '2949000', '4', '64', 'Octacore', '16', '4', '4', '5', '5', '5'),
-(12, 'Vivo Y91', '1709000', '2', '16', 'Quadcore', '13', '4', '2', '3', '3', '3'),
-(13, 'XIAOMI POCOPHONE F1', '4675000\r\n', '6', '64', 'Octacore', '12', '2', '5', '5', '5', '3'),
-(14, 'Nokia 5', '1625000', '3', '16', 'Octacore', '13', '4', '3', '3', '5', '3'),
-(15, 'evercross S45\r\n', '520000', '1', '8', 'Quadcore', '5', '5', '1', '2', '3', '1');
+INSERT INTO `data_hp` (`id_hp`, `nama_hp`, `harga_hp`, `ram_hp`, `memori_hp`, `processor_hp`, `kamera_depan`, `kamera_belakang`, `baterai`, `garansi`) VALUES
+(1, 'Samsung Galaxy A54 5G', '4400000', '8', '256', 'Exynos 1380', '32', '50', '5000', '1'),
+(2, 'OPPO A78', '3100000', '8', '256', 'Snapdragon 680', '8', '50', '5000', '1'),
+(3, 'Realme 13', '3000000', '16', '256', 'Snapdragon 685', '16', '50', '5100', '1'),
+(4, 'POCO X6 5G ', '3500000', '8', '256', 'Snapdragon 7s Gen 2', '16', '64', '5100', '1'),
+(5, 'POCO F6 ', '5000000', '8', '256', 'Snapdragon 8s Gen 3', '20', '50', '5000', '1'),
+(6, 'Redmi Note 13 Pro 5G', '4000000', '8', '256', 'Snapdragon 7s Gen 2', '16', '200', '5100', '1'),
+(7, 'Vivo Y100', '3000000', '8', '128', 'Snapdragon 4 Gen 2', '8', '50', '5000', '4'),
+(8, 'Samsung Galaxy A15 5G', '2900000', '8', '256', 'Dimensity 6100', '13', '50', '5000', '1'),
+(9, 'Xiaomi 13T', '6500000', '12', '256', 'Mediatek Dimensity 8300 Ultra', '20', '50', '5000', '2'),
+(10, 'Infinix Note 40 Pro Plus 5G', '3800000', '12', '256', 'Dimensity 7020', '32', '108', '4600', '1');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `data_hp`
+-- Indeks untuk tabel `data_hp`
 --
 ALTER TABLE `data_hp`
   ADD PRIMARY KEY (`id_hp`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `data_hp`
+-- AUTO_INCREMENT untuk tabel `data_hp`
 --
 ALTER TABLE `data_hp`
-  MODIFY `id_hp` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;COMMIT;
+  MODIFY `id_hp` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

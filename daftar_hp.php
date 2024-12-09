@@ -3,6 +3,7 @@ session_start();
 include('koneksi.php');
 ?>
 
+
 <?php 
 	if(isset($_POST["tambah_hp"])){
 		$nama      = $_POST["nama"];
@@ -10,87 +11,24 @@ include('koneksi.php');
 		$ram       = $_POST["ram"];
 		$memori    = $_POST["memori"];
 		$processor = $_POST["processor"];
-		$kamera    = $_POST["kamera"];
-		
-		$harga_angka = $ram_angka = $memori_angka = $processor_angka = $kamera_angka = 0;
-
-		if($harga < 1000000){
-			$harga_angka = 5;
-		} 
-		elseif($harga >= 1000000 && $harga <= 3000000){
-			$harga_angka = 4;
-		}
-		elseif($harga > 3000000 && $harga <= 4000000){
-			$harga_angka = 3;
-		}
-		elseif($harga > 4000000 && $harga <= 5000000){
-			$harga_angka = 2;
-		}
-		elseif($harga > 5000000){
-			$harga_angka = 1;
-		}
+		$kamera_depan    = $_POST["kamera_depan"];
+		$kamera_belakang = $_POST["kamera_belakang"];
+		$baterai = $_POST["baterai"];
+		$garansi = $_POST["garansi"];
 
 
-		if($ram < 6){
-			$ram_angka = $ram;
-		}
-		elseif($ram == 6){
-			$ram_angka = 5;
-		}
-
-
-		if($memori == 4){
-			$memori_angka = 1;
-		}
-		elseif($memori == 8){
-			$memori_angka = 2;
-		}
-		elseif($memori == 16){
-			$memori_angka = 3;
-		}
-		elseif($memori == 32){
-			$memori_angka = 4;
-		}
-		elseif($memori == 64){
-			$memori_angka = 5;
-		}
-
-
-		if($processor == "Dualcore"){
-			$processor_angka = 1;
-		}
-		elseif($processor == "Quadcore"){
-			$processor_angka = 3;
-		}
-		elseif($processor == "Octacore"){
-			$processor_angka = 5;
-		}
-
-
-		if($kamera == 8){
-			$kamera_angka = 1;
-		}
-		elseif($kamera == 13){
-			$kamera_angka = 3;
-		}
-		elseif($kamera == 16){
-			$kamera_angka = 5;
-		}
-
-		$sql = "INSERT INTO `data_hp` (`id_hp`, `nama_hp`, `harga_hp`, `ram_hp`, `memori_hp`, `processor_hp`, `kamera_hp`, `harga_angka`, `ram_angka`, `memori_angka`, `processor_angka`, `kamera_angka`) 
-				VALUES (NULL, :nama_hp, :harga_hp, :ram_hp, :memori_hp, :processor_hp, :kamera_hp, :harga_angka, :ram_angka, :memori_angka, :processor_angka, :kamera_angka)";
+		$sql = "INSERT INTO `data_hp` (`id_hp`, `nama_hp`, `harga_hp`, `ram_hp`, `memori_hp`, `processor_hp`, `kamera_depan` , `kamera_belakang`, `baterai`, `garansi`) 
+				VALUES (NULL, :nama_hp, :harga_hp, :ram_hp, :memori_hp, :processor_hp, :kamera_depan, :kamera_belakang, :baterai, :garansi)";
 		$stmt = $db->prepare($sql);
 		$stmt->bindValue(':nama_hp', $nama);
 		$stmt->bindValue(':harga_hp', $harga);
 		$stmt->bindValue(':ram_hp', $ram);
 		$stmt->bindValue(':memori_hp', $memori);
 		$stmt->bindValue(':processor_hp', $processor);
-		$stmt->bindValue(':kamera_hp', $kamera);
-		$stmt->bindValue(':harga_angka', $harga_angka);
-		$stmt->bindValue(':ram_angka', $ram_angka);
-		$stmt->bindValue(':memori_angka', $memori_angka);
-		$stmt->bindValue(':processor_angka', $processor_angka);
-		$stmt->bindValue(':kamera_angka', $kamera_angka);
+		$stmt->bindValue(':kamera_depan', $kamera_depan);
+		$stmt->bindValue(':kamera_belakang', $kamera_belakang);
+		$stmt->bindValue(':baterai', $baterai);
+		$stmt->bindValue(':garansi', $garansi);
 		$stmt->execute();
 	}
 
@@ -168,7 +106,10 @@ include('koneksi.php');
 													<th><center>RAM HP</center></th>
 													<th><center>Memori HP</center></th>
 													<th><center>Processor HP</center></th>
-													<th><center>Kamera HP</center></th>
+													<th><center>Kamera Depan</center></th>
+													<th><center>Kamera Belakang</center></th>
+													<th><center>Baterai</center></th>
+													<th><center>Garansi</center></th>
 													<th><center>Hapus</center></th>
 												</tr>
 											</thead>
@@ -185,7 +126,10 @@ include('koneksi.php');
 													<td><center><?php echo $data['ram_hp']," GB" ?></center></td>
 													<td><center><?php echo $data['memori_hp']," GB" ?></center></td>
 													<td><center><?php echo $data['processor_hp'] ?></center></td>
-													<td><center><?php echo $data['kamera_hp']," MP" ?></center></td>
+													<td><center><?php echo $data['kamera_depan']," MP" ?></center></td>
+													<td><center><?php echo $data['kamera_belakang']," MP" ?></center></td>
+													<td><center><?php echo $data['baterai']," mAh" ?></center></td>
+													<td><center><?php echo $data['garansi']," Tahun" ?></center></td>
 													<td>
 														<center>
 															<form method="POST">
@@ -206,61 +150,12 @@ include('koneksi.php');
 							<a href="#tambah" class="btn-floating btn-large waves-effect waves-light teal btn-float-custom"><i class="material-icons">add</i></a>
 						</div>
 				    </li>
-				</ul>	     
-	    	</div>
+				</ul>
+			    <center><button type="submit" class="waves-effect waves-light btn" style="margin-bottom:46px;">Analisa Rekomendasi</button></center>
+		    </div>
 		</div>
 	</div>
-	<!-- Daftar hp End -->
 
-	<!-- Daftar hp Start -->
-	<div style="background-color: #efefef">
-		<div class="container">
-		    <div class="section-card" style="padding: 1px 20% 24px 20%;">
-				<ul>
-				    <li>
-						<div class="row">
-							<div class="card">
-								<div class="card-content" style="padding-top: 10px;">
-									<center><h5 style="margin-bottom: 10px;">Analisa Smartphone</h5></center>
-									<table class="responsive-table">
-									
-											<thead style="border-top: 1px solid #d0d0d0;">
-												<tr>
-													<th><center>Alternatif</center></th>
-													<th><center>C1 (Cost)</center></th>
-													<th><center>C2 (Benefit)</center></th>
-													<th><center>C3 (Benefit)</center></th>
-													<th><center>C4 (Benefit)</center></th>
-													<th><center>C5 (Benefit)</center></th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php
-												$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
-												$no=1;
-												while ($data=mysqli_fetch_array($query)) {
-												?>
-												<tr>
-													<td><center><?php echo "A",$no ?></center></td>
-													<td><center><?php echo $data['harga_angka'] ?></center></td>
-													<td><center><?php echo $data['ram_angka'] ?></center></td>
-													<td><center><?php echo $data['memori_angka'] ?></center></td>
-													<td><center><?php echo $data['processor_angka'] ?></center></td>
-													<td><center><?php echo $data['kamera_angka'] ?></center></td>
-												</tr>
-												<?php
-														$no++;}
-												?>
-											</tbody>
-									</table>
-									</div>
-							</div>
-						</div>
-				    </li>
-				</ul>	     
-	    	</div>
-		</div>
-	</div>
 	<!-- Daftar hp End -->
 
 	<!-- Modal Start -->
@@ -275,14 +170,14 @@ include('koneksi.php');
 									<div class="col s12">
 
 										<div class="col s6" style="margin-top: 10px;">
-											<b>Nama</b>
+											<b>Nama HP</b>
 										</div>
 										<div class="col s6">
 											<input style="height: 2rem;" name="nama" type="text" required>
 										</div>
 
 										<div class="col s6" style="margin-top: 10px;">
-											<b>Harga</b>
+											<b>Harga (Rp)</b>
 										</div>
 										<div class="col s6">
 											<input style="height: 2rem;" name="harga" type="number" required>
@@ -294,11 +189,11 @@ include('koneksi.php');
 										<div class="col s6">
 											<select style="display: block; margin-bottom: 4px;" required name="ram">
 												<!-- <option value = "" disabled selected>Kriteria RAM</option>  -->
-												<option value = "1">1 Gb</option>
-												<option value = "2">2 Gb</option>
-												<option value = "3">3 Gb</option>
 												<option value = "4">4 Gb</option>
 												<option value = "6">6 Gb</option>
+												<option value = "8">8 Gb</option>
+												<option value = "12">12 Gb</option>
+												<option value = "16">16 Gb</option>
 											</select>
 										</div>
 
@@ -320,22 +215,57 @@ include('koneksi.php');
 											<b>Processor</b>
 										</div>
 										<div class="col s6">
-											<select style="display: block; margin-bottom: 4px;" required name="processor">
-												<option value = "Dualcore">Dualcore</option>
-												<option value = "Quadcore">Quadcore</option>
-												<option value = "Octacore">Octacore</option>
+											<select style="display: block; margin-bottom: 4px;" required name="processor" id="processor">
+												<?php
+												$result = mysqli_query($selectdb, "SELECT chipset FROM nanoreview ORDER BY chipset ASC");
+
+												if ($result) {
+													if (mysqli_num_rows($result) > 0) {
+														while ($row = mysqli_fetch_assoc($result)) {
+															echo '<option value="' . htmlspecialchars($row['chipset']) . '">' . htmlspecialchars($row['chipset']) . '</option>';
+														}
+													} else {
+														echo '<option value="">No processors available</option>';
+													}
+												} else {
+													echo '<option value="">Error loading database</option>';
+												}
+												?>
 											</select>
 										</div>
 
 										<div class="col s6" style="margin-top: 10px;">
-											<b>Kamera</b>
+											<b>Kamera Depan (MP)</b>
 										</div>
 										<div class="col s6">
-											<select style="display: block; margin-bottom: 4px;" required name="kamera">
+											<input style="height: 2rem;" name="kamera_depan" type="number" required>
+										</div>
+
+										<div class="col s6" style="margin-top: 10px;">
+											<b>Kamera Belakang (MP)</b>
+										</div>
+										<div class="col s6">
+											<input style="height: 2rem;" name="kamera_belakang" type="number" required>
+										</div>
+
+										<div class="col s6" style="margin-top: 10px;">
+											<b>Baterai (mAh)</b>
+										</div>
+										<div class="col s6">
+											<input style="height: 2rem;" name="baterai" type="number" required>
+										</div>
+
+										<div class="col s6" style="margin-top: 10px;">
+											<b>Garansi</b>
+										</div>
+										<div class="col s6">
+											<select style="display: block; margin-bottom: 4px;" required name="garansi">
 												<!-- <option value = "" disabled selected>Kriteria Kamera</option> -->
-												<option value = "8">8 Mp</option>
-												<option value = "13">13 Mp</option>
-												<option value = "16">16 Mp</option>
+												<option value = "1">1 Tahun</option>
+												<option value = "2">2 Tahun</option>
+												<option value = "3">3 Tahun</option>
+												<option value = "4">4 Tahun</option>
+												<option value = "5">5 Tahun</option>
 											</select>
 										</div>
 

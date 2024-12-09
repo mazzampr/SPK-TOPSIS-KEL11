@@ -203,11 +203,11 @@ include('koneksi.php');
 										<div class="col s6">
 											<select style="display: block; margin-bottom: 4px;" required name="memori">
 												<!-- <option value = "" disabled selected>Kriteria Penyimpanan</option> -->
-												<option value = "4">4 Gb</option>
-												<option value = "8">8 Gb</option>
-												<option value = "16">16 Gb</option>
 												<option value = "32">32 Gb</option>
 												<option value = "64">64 Gb</option>
+												<option value = "128">128 Gb</option>
+												<option value = "256">256 Gb</option>
+												<option value = "512">512 Gb</option>
 											</select>
 										</div>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2024 pada 12.56
+-- Waktu pembuatan: 11 Des 2024 pada 23.26
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -20,6 +20,104 @@ SET time_zone = "+00:00";
 --
 -- Database: `data_hp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_hp`
+--
+
+CREATE TABLE `data_hp` (
+  `id_hp` int(4) NOT NULL,
+  `nama_hp` varchar(256) NOT NULL,
+  `harga_hp` varchar(64) NOT NULL,
+  `ram_hp` varchar(64) NOT NULL,
+  `memori_hp` varchar(64) NOT NULL,
+  `processor_hp` varchar(64) NOT NULL,
+  `kamera_depan` varchar(64) NOT NULL,
+  `kamera_belakang` varchar(10) NOT NULL,
+  `baterai` varchar(10) NOT NULL,
+  `garansi` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data untuk tabel `data_hp`
+--
+
+INSERT INTO `data_hp` (`id_hp`, `nama_hp`, `harga_hp`, `ram_hp`, `memori_hp`, `processor_hp`, `kamera_depan`, `kamera_belakang`, `baterai`, `garansi`) VALUES
+(2, 'OPPO A78', '3100000', '8', '256', 'Snapdragon 680', '8', '50', '5000', '1'),
+(3, 'Realme 13', '3000000', '16', '256', 'Snapdragon 685', '16', '50', '5100', '1'),
+(4, 'POCO X6 5G ', '3500000', '8', '256', 'Snapdragon 7s Gen 2', '16', '64', '5100', '1'),
+(5, 'POCO F6 ', '5000000', '8', '256', 'Snapdragon 8s Gen 3', '20', '50', '5000', '1'),
+(6, 'Redmi Note 13 Pro 5G', '4000000', '8', '256', 'Snapdragon 7s Gen 2', '16', '200', '5100', '1'),
+(7, 'Vivo Y100', '3000000', '8', '128', 'Snapdragon 4 Gen 2', '8', '50', '5000', '4'),
+(8, 'Samsung Galaxy A15 5G', '2900000', '8', '256', 'Dimensity 6100', '13', '50', '5000', '1'),
+(9, 'Xiaomi 13T', '6500000', '12', '256', 'Mediatek Dimensity 8300 Ultra', '20', '50', '5000', '2'),
+(10, 'Infinix Note 40 Pro Plus 5G', '3800000', '12', '256', 'Dimensity 7020', '32', '108', '4600', '1'),
+(11, 'Vovo', '4000000', '4', '4', 'A10 Fusion', '50', '50', '5000', '1'),
+(12, 'Vovo', '4000000', '4', '4', 'A10 Fusion', '50', '50', '5000', '1'),
+(13, 'VAVA', '5000000', '4', '4', 'A10 Fusion', '90', '90', '9000', '1'),
+(14, 'VAVA', '5000000', '4', '4', 'A10 Fusion', '90', '90', '9000', '1'),
+(15, 'VAVA', '5000000', '4', '4', 'A10 Fusion', '90', '90', '9000', '1'),
+(16, 'VAVA', '5000000', '4', '4', 'A10 Fusion', '90', '90', '9000', '1'),
+(17, 'VAVA', '5000000', '4', '4', 'A10 Fusion', '90', '90', '9000', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `ir`
+--
+
+CREATE TABLE `ir` (
+  `jumlah` int(11) NOT NULL,
+  `nilai` float NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `ir`
+--
+
+INSERT INTO `ir` (`jumlah`, `nilai`) VALUES
+(1, 0),
+(2, 0),
+(3, 0.58),
+(4, 0.9),
+(5, 1.12),
+(6, 1.24),
+(7, 1.32),
+(8, 1.41),
+(9, 1.45),
+(10, 1.49),
+(11, 1.51),
+(12, 1.48),
+(13, 1.56),
+(14, 1.57),
+(15, 1.59);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kriteria`
+--
+
+CREATE TABLE `kriteria` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `kriteria`
+--
+
+INSERT INTO `kriteria` (`id`, `nama`) VALUES
+(1, 'Harga'),
+(2, 'RAM'),
+(3, 'ROM'),
+(4, 'Processor'),
+(5, 'KameraDepan'),
+(6, 'KameraBelakang'),
+(7, 'Baterai'),
+(8, 'Garansi');
 
 -- --------------------------------------------------------
 
@@ -219,6 +317,151 @@ INSERT INTO `nanoreview` (`ranking`, `chipset`, `rating1`, `rating2`) VALUES
 ('178', 'Snapdragon 636', '20', 'D'),
 ('179', 'Helio A22', '20', 'D'),
 ('180', 'Snapdragon 450', '18', 'D');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `perbandingan_kriteria`
+--
+
+CREATE TABLE `perbandingan_kriteria` (
+  `id` int(11) NOT NULL,
+  `kriteria1` int(11) NOT NULL,
+  `kriteria2` int(11) NOT NULL,
+  `nilai` float NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `perbandingan_kriteria`
+--
+
+INSERT INTO `perbandingan_kriteria` (`id`, `kriteria1`, `kriteria2`, `nilai`) VALUES
+(7, 1, 2, 0.5),
+(8, 1, 3, 4),
+(9, 1, 4, 3),
+(10, 1, 5, 2),
+(11, 1, 6, 1),
+(12, 1, 7, 3),
+(13, 1, 8, 4),
+(14, 2, 3, 1),
+(15, 2, 4, 1),
+(16, 2, 5, 1),
+(17, 2, 6, 0.5),
+(18, 2, 7, 3),
+(19, 2, 8, 1),
+(20, 3, 4, 0.25),
+(21, 3, 5, 3),
+(22, 3, 6, 2),
+(23, 3, 7, 1),
+(24, 3, 8, 3),
+(25, 4, 5, 0.333333),
+(26, 4, 6, 0.5),
+(27, 4, 7, 1),
+(28, 4, 8, 1),
+(29, 5, 6, 4),
+(30, 5, 7, 3),
+(31, 5, 8, 1),
+(32, 6, 7, 3),
+(33, 6, 8, 0.5),
+(34, 7, 8, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pv_kriteria`
+--
+
+CREATE TABLE `pv_kriteria` (
+  `id_kriteria` int(11) NOT NULL,
+  `nilai` float NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `pv_kriteria`
+--
+
+INSERT INTO `pv_kriteria` (`id_kriteria`, `nilai`) VALUES
+(1, 0.20425),
+(2, 0.133524),
+(3, 0.136225),
+(4, 0.10261),
+(5, 0.152598),
+(6, 0.12249),
+(7, 0.059312),
+(8, 0.0889909);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `ranking`
+--
+
+CREATE TABLE `ranking` (
+  `id_alternatif` int(11) NOT NULL,
+  `nilai` float NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `data_hp`
+--
+ALTER TABLE `data_hp`
+  ADD PRIMARY KEY (`id_hp`);
+
+--
+-- Indeks untuk tabel `ir`
+--
+ALTER TABLE `ir`
+  ADD PRIMARY KEY (`jumlah`);
+
+--
+-- Indeks untuk tabel `kriteria`
+--
+ALTER TABLE `kriteria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `perbandingan_kriteria`
+--
+ALTER TABLE `perbandingan_kriteria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `pv_kriteria`
+--
+ALTER TABLE `pv_kriteria`
+  ADD PRIMARY KEY (`id_kriteria`);
+
+--
+-- Indeks untuk tabel `ranking`
+--
+ALTER TABLE `ranking`
+  ADD PRIMARY KEY (`id_alternatif`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `data_hp`
+--
+ALTER TABLE `data_hp`
+  MODIFY `id_hp` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT untuk tabel `kriteria`
+--
+ALTER TABLE `kriteria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT untuk tabel `perbandingan_kriteria`
+--
+ALTER TABLE `perbandingan_kriteria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

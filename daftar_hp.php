@@ -1,12 +1,13 @@
 <?php 
 session_start();
 include('koneksi.php');
+
 ?>
 
 
 <?php 
 	if(isset($_POST["tambah_hp"])){
-		$nama      = $_POST["nama"];
+		$nama_hp      = $_POST["nama_hp"];
 		$harga     = $_POST["harga"];
 		$ram       = $_POST["ram"];
 		$memori    = $_POST["memori"];
@@ -20,7 +21,7 @@ include('koneksi.php');
 		$sql = "INSERT INTO `data_hp` (`id_hp`, `nama_hp`, `harga_hp`, `ram_hp`, `memori_hp`, `processor_hp`, `kamera_depan` , `kamera_belakang`, `baterai`, `garansi`) 
 				VALUES (NULL, :nama_hp, :harga_hp, :ram_hp, :memori_hp, :processor_hp, :kamera_depan, :kamera_belakang, :baterai, :garansi)";
 		$stmt = $db->prepare($sql);
-		$stmt->bindValue(':nama_hp', $nama);
+		$stmt->bindValue(':nama_hp', $nama_hp);
 		$stmt->bindValue(':harga_hp', $harga);
 		$stmt->bindValue(':ram_hp', $ram);
 		$stmt->bindValue(':memori_hp', $memori);
@@ -38,7 +39,7 @@ include('koneksi.php');
 		$stmt_delete = $db->prepare($sql_delete);
 		$stmt_delete->bindValue(':id_hapus_hp', $id_hapus_hp);
 		$stmt_delete->execute();
-		$query_reorder_id=mysqli_query($selectdb,"ALTER TABLE data_hp AUTO_INCREMENT = 1");
+		$query_reorder_id=mysqli_query($koneksi,"ALTER TABLE data_hp AUTO_INCREMENT = 1");
 	}
 ?>
 
@@ -115,7 +116,7 @@ include('koneksi.php');
 											</thead>
 											<tbody>
 												<?php
-												$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
+												$query=mysqli_query($koneksi,"SELECT * FROM data_hp");
 												$no=1;
 												while ($data=mysqli_fetch_array($query)) {
 												?>
@@ -145,15 +146,24 @@ include('koneksi.php');
 											</tbody>
 									</table>
 									</div>
-									
-							</div>
 							<a href="#tambah" class="btn-floating btn-large waves-effect waves-light teal btn-float-custom"><i class="material-icons">add</i></a>
 						</div>
 				    </li>
-				</ul>	     
-	    	</div>
+				</ul>
+
+			    <?php
+			    include('fungsi.php');
+			    ?>
+			    <center><section class="content">
+				    <h2 class="ui header">Perbandingan Kriteria</h2>
+				    <?php showTabelPerbandingan('kriteria','kriteria'); ?>
+			    </section></center>
+		    </div>
+
+		    </div>
 		</div>
 	</div>
+
 	<!-- Daftar hp End -->
 
 	<!-- Modal Start -->
@@ -168,14 +178,14 @@ include('koneksi.php');
 									<div class="col s12">
 
 										<div class="col s6" style="margin-top: 10px;">
-											<b>Nama</b>
+											<b>Nama HP</b>
 										</div>
 										<div class="col s6">
-											<input style="height: 2rem;" name="nama" type="text" required>
+											<input style="height: 2rem;" name="nama_hp" type="text" required>
 										</div>
 
 										<div class="col s6" style="margin-top: 10px;">
-											<b>Harga</b>
+											<b>Harga (Rp)</b>
 										</div>
 										<div class="col s6">
 											<input style="height: 2rem;" name="harga" type="number" required>
@@ -187,11 +197,11 @@ include('koneksi.php');
 										<div class="col s6">
 											<select style="display: block; margin-bottom: 4px;" required name="ram">
 												<!-- <option value = "" disabled selected>Kriteria RAM</option>  -->
-												<option value = "1">1 Gb</option>
-												<option value = "2">2 Gb</option>
-												<option value = "3">3 Gb</option>
 												<option value = "4">4 Gb</option>
 												<option value = "6">6 Gb</option>
+												<option value = "8">8 Gb</option>
+												<option value = "12">12 Gb</option>
+												<option value = "16">16 Gb</option>
 											</select>
 										</div>
 
@@ -215,7 +225,7 @@ include('koneksi.php');
 										<div class="col s6">
 											<select style="display: block; margin-bottom: 4px;" required name="processor" id="processor">
 												<?php
-												$result = mysqli_query($selectdb, "SELECT chipset FROM nanoreview ORDER BY chipset ASC");
+												$result = mysqli_query($koneksi, "SELECT chipset FROM nanoreview ORDER BY chipset ASC");
 
 												if ($result) {
 													if (mysqli_num_rows($result) > 0) {
@@ -232,16 +242,38 @@ include('koneksi.php');
 											</select>
 										</div>
 
-
 										<div class="col s6" style="margin-top: 10px;">
-											<b>Kamera</b>
+											<b>Kamera Depan (MP)</b>
 										</div>
 										<div class="col s6">
-											<select style="display: block; margin-bottom: 4px;" required name="kamera">
+											<input style="height: 2rem;" name="kamera_depan" type="number" required>
+										</div>
+
+										<div class="col s6" style="margin-top: 10px;">
+											<b>Kamera Belakang (MP)</b>
+										</div>
+										<div class="col s6">
+											<input style="height: 2rem;" name="kamera_belakang" type="number" required>
+										</div>
+
+										<div class="col s6" style="margin-top: 10px;">
+											<b>Baterai (mAh)</b>
+										</div>
+										<div class="col s6">
+											<input style="height: 2rem;" name="baterai" type="number" required>
+										</div>
+
+										<div class="col s6" style="margin-top: 10px;">
+											<b>Garansi</b>
+										</div>
+										<div class="col s6">
+											<select style="display: block; margin-bottom: 4px;" required name="garansi">
 												<!-- <option value = "" disabled selected>Kriteria Kamera</option> -->
-												<option value = "8">8 Mp</option>
-												<option value = "13">13 Mp</option>
-												<option value = "16">16 Mp</option>
+												<option value = "1">1 Tahun</option>
+												<option value = "2">2 Tahun</option>
+												<option value = "3">3 Tahun</option>
+												<option value = "4">4 Tahun</option>
+												<option value = "5">5 Tahun</option>
 											</select>
 										</div>
 

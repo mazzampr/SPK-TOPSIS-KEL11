@@ -14,10 +14,11 @@ try {
 }
 
 // melakukan koneksi ke database
-$selectdb = new mysqli($host,$user,$pass,$name);
+$koneksi2 = mysqli_connect($host,$user,$pass);
+$koneksi = new mysqli($host,$user,$pass,$name);
 
 // cek koneksi yang kita lakukan berhasil atau tidak
-if ($selectdb->connect_error) {
+if ($koneksi->connect_error) {
    // jika terjadi error, matikan proses dengan die() atau exit();
    die('Maaf koneksi gagal: '. $koneksi->connect_error);
 }

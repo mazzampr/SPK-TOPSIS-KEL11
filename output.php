@@ -1,3 +1,8 @@
+<link rel="stylesheet" type="text/css" href="assets/css/style2.css">
+<link rel="stylesheet" type="text/css" href="assets/css/semantic.css">
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/semantic.js"></script>
+
 <section class="content">
 	<h3 class="ui header">Matriks Perbandingan Berpasangan</h3>
 	<table class="ui collapsing celled blue table">

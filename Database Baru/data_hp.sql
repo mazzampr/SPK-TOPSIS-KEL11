@@ -4,6 +4,7 @@
 --
 -- Host: 127.0.0.1
 -- Waktu pembuatan: 11 Des 2024 pada 23.26
+-- Waktu pembuatan: 09 Des 2024 pada 12.56
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -122,6 +123,20 @@ INSERT INTO `kriteria` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `nanoreview`
+--
+
+CREATE TABLE `nanoreview` (
+  `ranking` varchar(4) DEFAULT NULL,
+  `chipset` varchar(26) DEFAULT NULL,
+  `rating1` varchar(7) DEFAULT NULL,
+  `rating2` varchar(7) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data untuk tabel `nanoreview`
+--
+
 -- Struktur dari tabel `nanoreview`
 --
 
@@ -318,6 +333,7 @@ INSERT INTO `nanoreview` (`ranking`, `chipset`, `rating1`, `rating2`) VALUES
 ('179', 'Helio A22', '20', 'D'),
 ('180', 'Snapdragon 450', '18', 'D');
 
+
 -- --------------------------------------------------------
 
 --
@@ -462,6 +478,7 @@ ALTER TABLE `kriteria`
 --
 ALTER TABLE `perbandingan_kriteria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

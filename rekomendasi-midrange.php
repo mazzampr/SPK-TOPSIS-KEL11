@@ -77,12 +77,9 @@ include('koneksi.php');
 						<div class="nav-wrapper">
 								<ul class="left" style="margin-left: -52px;">
 									<li><a href="index.php">HOME</a></li>
-									<li><a href="rekomendasi.php">REKOMENDASI</a></li>
-									<li><a class="active" href="daftar_hp.php">DAFTAR SMARTPHONE</a></li>
-									<li><a href="#about">TENTANG</a></li>
+									<li><a class="active" href="rekomendasi-midrange.php">REKOMENDASI HP MID-RANGE</a></li>
 								</ul>
 						</div>
-					
         </div>
 		</nav>
 		</div>
@@ -97,7 +94,7 @@ include('koneksi.php');
 						<div class="row">
 						<div class="card">
 								<div class="card-content">
-									<center><h4 style="margin-bottom: 0px; margin-top: -8px;">Daftar Smartphone</h4></center>
+									<center><h4 style="margin-bottom: 0px; margin-top: -8px;">Daftar Smartphone MIDRANGE</h4></center>
 									<table id="table_id" class="hover dataTablesCustom" style="width:100%">
 											<thead style="border-top: 1px solid #d0d0d0;">
 												<tr>

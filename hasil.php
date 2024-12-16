@@ -7,7 +7,7 @@ $W1	= $_POST['harga'];
 $W2	= $_POST['ram'];
 $W3	= $_POST['memori'];
 $W4	= $_POST['processor'];
-$W5	= $_POST['kamera'];
+$W5	= $_POST['kamera_depan'];
 
 //Pembagi Normalisasi
 function pembagiNM($matrik){
@@ -128,7 +128,7 @@ function JarakIplus($aplus,$bob){
 										</thead>
 										<tbody>
 											<?php
-											$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
+											$query=mysqli_query($koneksi,"SELECT * FROM data_hp");
 											$no=1;
 											while ($data_hp=mysqli_fetch_array($query)) {
 												$Matrik[$no-1]=array($data_hp['harga_angka'],$data_hp['ram_angka'],$data_hp['memori_angka'],$data_hp['processor_angka'],$data_hp['kamera_angka'] );
@@ -177,7 +177,7 @@ function JarakIplus($aplus,$bob){
 										</thead>
 										<tbody>
 											<?php
-											$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
+											$query=mysqli_query($koneksi,"SELECT * FROM data_hp");
 											$no=1;
 											$pembagiNM=pembagiNM($Matrik);
 											while ($data_hp=mysqli_fetch_array($query)) {
@@ -270,7 +270,7 @@ function JarakIplus($aplus,$bob){
 											</thead>
 											<tbody>
 												<?php
-												$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
+												$query=mysqli_query($koneksi,"SELECT * FROM data_hp");
 												$no=1;
 												$pembagiNM=pembagiNM($Matrik);
 												while ($data_hp=mysqli_fetch_array($query)) {
@@ -383,7 +383,7 @@ function JarakIplus($aplus,$bob){
 												</thead>
 												<tbody>
 													<?php
-													$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
+													$query=mysqli_query($koneksi,"SELECT * FROM data_hp");
 													$no=1;
 													$Dplus=JarakIplus($idealpositif,$NormalisasiBobot);
 													$Dmin=JarakIplus($idealnegatif,$NormalisasiBobot);
@@ -429,7 +429,7 @@ function JarakIplus($aplus,$bob){
 												</thead>
 												<tbody>
 													<?php
-													$query=mysqli_query($selectdb,"SELECT * FROM data_hp");
+													$query=mysqli_query($koneksi,"SELECT * FROM data_hp");
 													$no=1;
 													$nilaiV = array();
 													while ($data_hp=mysqli_fetch_array($query)) {
@@ -478,7 +478,7 @@ function JarakIplus($aplus,$bob){
 														$testmax = max($nilaiV);
 														for ($i=0; $i < count($nilaiV); $i++) { 
 															if ($nilaiV[$i] == $testmax) {
-																$query=mysqli_query($selectdb,"SELECT * FROM data_hp where id_hp = $i+1");
+																$query=mysqli_query($koneksi,"SELECT * FROM data_hp where id_hp = $i+1");
 																?>
 																<td><center><?php echo "V".($i+1); ?></center></td>
 																<td><center><?php echo $nilaiV[$i]; ?></center></td>

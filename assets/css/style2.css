@@ -1,0 +1,74 @@
+/* Layout */
+html {display: -webkit-box;display: -ms-flexbox;display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;} /* IE fix */
+
+/* Responsive */
+
+@media (max-width: 640px) {
+	body {
+  min-height: 0; 
+}
+	.wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+	.content {
+		-ms-flex-preferred-size: auto;
+		    flex-basis: auto;
+	}
+  nav {
+    width: auto;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+
+/* Decoration */
+
+#tabel-perbandingan-container body {
+	margin: 0;
+	background: #fff;
+}
+#tabel-perbandingan-container header, nav, section, footer {
+	padding: 10px 30px;
+	margin: 0;
+	color: #fff;
+}
+#tabel-perbandingan-container header {
+	background: #303030;
+  text-align: center;
+  padding: 30px;
+}
+#tabel-perbandingan-container nav {
+	background: #666666;
+	padding: 0;
+}
+#tabel-perbandingan-container nav a {
+  display: block;
+  font-weight: 900;
+  padding: .5em 1em;
+  color: #fff;
+  text-decoration: none;
+}
+#tabel-perbandingan-container ul {
+	list-style-type: none;
+	padding: 10px 0 10px 15px;
+}
+
+#tabel-perbandingan-container li:hover {
+	background: white;
+	transition: all .3s ease-in;
+}
+
+
+#tabel-perbandingan-container li:hover a {
+	color: black;
+}
+
+#tabel-perbandingan-container section {
+	background: white;
+  color: black;
+  padding: 30px;
+}

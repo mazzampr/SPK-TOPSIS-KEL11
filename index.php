@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Sistem Pendukung Keputusan Pemilihan Smartphone</title>
 	<meta property="og:image" content="assets/image/laptop.jpg" />
 	<meta name="description" content="Leppi adalah aplikasi Sistem Pendukung Keputusan Laptop berbasis Metode Weight Product">
-	<!--Import Google Icon Font-->
+	<!--Test-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet" href="assets/css/materialize.css"  media="screen,projection"/>

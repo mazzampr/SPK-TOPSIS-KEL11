@@ -14,6 +14,41 @@ function getKriteriaID($no_urut) {
 	return $listID[($no_urut)];
 }
 
+function sortingID($namatabel, $namakolom) {
+	include('koneksi.php');
+	$query = "SELECT * FROM $namatabel ORDER BY $namakolom ASC";
+	$result = mysqli_query($koneksi, $query);
+
+	if (!$result) {
+		die("Error fetching data: " . mysqli_error($koneksi));
+	}
+
+	$idBaru = 1;
+
+	while ($row = mysqli_fetch_assoc($result)) {
+		$idLama = $row[$namakolom];
+
+		$updateQuery = "UPDATE $namatabel SET $namakolom = $idBaru WHERE $namakolom = $idLama";
+		$updateResult = mysqli_query($koneksi, $updateQuery);
+
+		if (!$updateResult) {
+			die("Error update ID: " . mysqli_error($koneksi));
+		}
+
+		$idBaru++;
+	}
+
+	$resetQuery = "ALTER TABLE $namatabel AUTO_INCREMENT = $idBaru";
+	$resetResult = mysqli_query($koneksi, $resetQuery);
+
+	if (!$resetResult) {
+		die("Error: " . mysqli_error($koneksi));
+	}
+
+	return true; // Indicate success
+}
+
+
 // mencari ID alternatif
 // berdasarkan urutan ke berapa (A1, A2, A3)
 //function getAlternatifID($no_urut) {
@@ -41,6 +76,76 @@ function getKriteriaNama($no_urut) {
 	}
 
 	return $nama[($no_urut)];
+}
+
+function getPrioritas(){
+	include('koneksi.php');
+	$priorities = [];
+	$query = "SELECT priority FROM kriteria ORDER BY id ASC";
+	$result = mysqli_query($koneksi, $query);
+
+	if ($result) {
+		while ($row = mysqli_fetch_assoc($result)) {
+			$priorities[] = $row['priority'];
+		}
+	} else {
+		echo "Error fetching priorities: " . mysqli_error($koneksi);
+		exit();
+	}
+	return $priorities;
+}
+
+function getBobot($nomor){
+	include('koneksi.php');
+	$bobotPV = [];
+	$query = "SELECT nilai_pv FROM kriteria ORDER BY id ASC";
+	$result = mysqli_query($koneksi, $query);
+
+	if ($result) {
+		while ($row = mysqli_fetch_assoc($result)) {
+			$bobotPV[] = round($row['nilai_pv'], 4);
+		}
+	} else {
+		echo "Error fetching priorities: " . mysqli_error($koneksi);
+		exit();
+	}
+	return $bobotPV[($nomor)];
+}
+function konvertProcessor() {
+	include('koneksi.php');
+
+	$query_data_hp = "SELECT id_hp, processor_hp, processor_angka FROM data_hp";
+	$result_data_hp = mysqli_query($koneksi, $query_data_hp);
+
+	if (!$result_data_hp) {
+		die('Error fetching data_hp: ' . mysqli_error($koneksi));
+	}
+
+	while ($row_data_hp = mysqli_fetch_assoc($result_data_hp)) {
+		$id_hp = $row_data_hp['id_hp'];
+		$processor_hp = $row_data_hp['processor_hp'];
+		$processor_angka = $row_data_hp['processor_angka'];
+
+		if ($processor_angka === '0' || is_null($processor_angka)) {
+			$query_benchmark = "SELECT rating2 FROM nanoreview WHERE chipset = '$processor_hp' LIMIT 1";
+			$result_benchmark = mysqli_query($koneksi, $query_benchmark);
+
+			if (!$result_benchmark) {
+				die('Error fetching benchmark data: ' . mysqli_error($koneksi));
+			}
+
+			if ($row_benchmark = mysqli_fetch_assoc($result_benchmark)) {
+				$rating = $row_benchmark['rating2'];
+
+				$update_query = "UPDATE data_hp SET processor_angka = '$rating' WHERE id_hp = '$id_hp'";
+				$update_result = mysqli_query($koneksi, $update_query);
+
+				if (!$update_result) {
+					die('Error updating processor_angka: ' . mysqli_error($koneksi));
+				}
+			}
+		}
+	}
 }
 
 // mencari nama alternatif
@@ -164,7 +269,7 @@ function getJumlahKriteria() {
 function inputKriteriaPV ($id_kriteria,$pv) {
 	include ('koneksi.php');
 
-	$query = "SELECT * FROM pv_kriteria WHERE id_kriteria=$id_kriteria";
+	$query = "SELECT * FROM kriteria WHERE id=$id_kriteria";
 	$result = mysqli_query($koneksi, $query);
 
 	if (!$result) {
@@ -175,10 +280,18 @@ function inputKriteriaPV ($id_kriteria,$pv) {
 	// jika result kosong maka masukkan data baru
 	// jika telah ada maka diupdate
 	if (mysqli_num_rows($result)==0) {
-		$query = "INSERT INTO pv_kriteria (id_kriteria, nilai) VALUES ($id_kriteria, $pv)";
+		// Insert data baru
+		$query = "INSERT INTO kriteria (id, nilai_pv) VALUES ($id_kriteria, $pv)";
 	} else {
-		$query = "UPDATE pv_kriteria SET nilai=$pv WHERE id_kriteria=$id_kriteria";
+		// Update data yang sudah ada
+		$query = "UPDATE kriteria SET nilai_pv=$pv WHERE id=$id_kriteria";
 	}
+
+//	if (mysqli_num_rows($result)==0) {
+//		$query = "INSERT INTO pv_kriteria (id_kriteria, nilai) VALUES ($id_kriteria, $pv)";
+//	} else {
+//		$query = "UPDATE pv_kriteria SET nilai=$pv WHERE id_kriteria=$id_kriteria";
+//	}
 
 
 	$result = mysqli_query($koneksi, $query);

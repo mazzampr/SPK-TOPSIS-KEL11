@@ -3,7 +3,7 @@
 	$DB_HOST = 'localhost:3360';
 	$DB_USER = 'root';
 	$DB_PASS = '';
-	$DB_NAME = 'data_hp';
+	$DB_NAME = 'spk_topsis';
 	
 	try{
 		$DB_con = new PDO("mysql:host={$DB_HOST};dbname={$DB_NAME}",$DB_USER,$DB_PASS);

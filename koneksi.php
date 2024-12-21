@@ -3,7 +3,7 @@
 $host = "localhost:3360";
 $user = "root";
 $pass = "";
-$name = "data_hp";
+$name = "spk_topsis";
 
 try {
     //create PDO connection

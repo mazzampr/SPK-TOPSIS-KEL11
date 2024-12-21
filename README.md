@@ -9,19 +9,18 @@ NPM | Nama
 21082010074 | Cendana Putri Aulia
 
 ## Screenshot
+![](./ss/a.PNG)
 
-    ![](ss/a.PNG)
-    
-    ![](ss/b.PNG)
-    
-    ![](ss/c.PNG)
-    
-    ![](ss/d.PNG)
-    
-    ![](ss/e.PNG)
-    
-    ![](ss/f.PNG)
-    
-    ![](ss/g.PNG)
+![](./ss/b.PNG)
 
-    ![](ss/h.PNG)
+![](./ss/c.PNG)
+
+![](./ss/d.PNG)
+
+![](./ss/e.PNG)
+
+![](./ss/f.PNG)
+
+![](./ss/g.PNG)
+
+![](./ss/h.PNG)

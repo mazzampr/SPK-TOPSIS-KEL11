@@ -10,18 +10,18 @@ NPM | Nama
 
 ## Screenshot
 
-    ![](./ss/a.PNG)
+    ![](ss/a.PNG)
     
-    ![](./ss/b.PNG)
+    ![](ss/b.PNG)
     
-    ![](./ss/c.PNG)
+    ![](ss/c.PNG)
     
-    ![](./ss/d.PNG)
+    ![](ss/d.PNG)
     
-    ![](./ss/e.PNG)
+    ![](ss/e.PNG)
     
-    ![](./ss/f.PNG)
+    ![](ss/f.PNG)
     
-    ![](./ss/g.PNG)
+    ![](ss/g.PNG)
 
-    ![](./ss/h.PNG)
+    ![](ss/h.PNG)

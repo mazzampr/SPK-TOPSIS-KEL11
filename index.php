@@ -43,7 +43,6 @@
 									<li><a href="#about">TENTANG</a></li>
 								</ul>
 						</div>
-					
         </div>
 		</nav>
 		</div>

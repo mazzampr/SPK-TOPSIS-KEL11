@@ -17,6 +17,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/js/materialize.js"></script>
+
 	
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -54,80 +55,83 @@
                                     <div class="card">
                                         <div class="card-content">
                                             <div class="row">
-                                                <center><h4>Masukan Bobot</h4></center>
+                                                <center><h4>Menentukan Prioritas</h4></center>
+	                                            <center><h6>Pilih 1 (Prioritas Utama) sampai 8 (Prioritas Terakhir)</h6></center>
+	                                            <center><h6>Boleh sama prioritasnya & boleh kurang dari 8 sama seperti contoh</h6></center>
                                                 <br>
-                                                <form class = "col s12" method="POST" action="hasil.php">
+                                                <form class = "col s12 ui form" method="post" action="proses.php">
                                                     <div class = "row">
                                                         <div class="col s12">
 
                                                             <div class="col s6" style="margin-top: 10px;">
-                                                                <b>Kriteria Harga</b>
+                                                                <b>Harga</b>
                                                             </div>
-                                                            <div class="col s6">
-                                                                <select required name="harga">
-                                                                    <option value = "" disabled selected style="color: #eceff1;"><i>Kriteria Harga</i></option>
-                                                                    <option value = "5">< Rp. 1.000.000</option>
-                                                                    <option value = "4">1.000.000 - 3.000.000</option>
-                                                                    <option value = "3">3.000.000 - 4.000.000</option>
-                                                                    <option value = "2">4.000.000 - 5.000.000</option>
-                                                                    <option value = "1">> 5.000.000</option>
-                                                                </select>
-                                                            </div>
+	                                                        <div class="col s6">
+		                                                        <input type="number" name="harga" required min="1" max="8" placeholder="Misal prioritas 1" style="width: 100%; padding: 5px;"
+		                                                        >
+	                                                        </div>
 
                                                             <div class="col s6" style="margin-top: 10px;">
                                                             <b>RAM</b>
                                                             </div>
-                                                            <div class="col s6">
-                                                                <select required name="ram">
-                                                                    <option value = "" disabled selected>Kriteria RAM</option> 
-                                                                    <option value = "1">0 - 1 Gb</option>
-                                                                    <option value = "2">2 Gb</option>
-                                                                    <option value = "3">3 Gb</option>
-                                                                    <option value = "4">4 Gb</option>
-                                                                    <option value = "5">> 5 Gb</option>
-                                                                </select>
-                                                            </div>
+	                                                        <div class="col s6">
+		                                                        <input type="number" name="ram" required min="1" max="8" placeholder="Misal prioritas 2" style="width: 100%; padding: 5px;"
+		                                                        >
+	                                                        </div>
 
                                                             <div class="col s6" style="margin-top: 10px;">
                                                                 <b>Memori</b>
                                                             </div>
-                                                            <div class="col s6">
-                                                                <select required name="memori">
-                                                                    <option value = "" disabled selected>Kriteria Penyimpanan</option>
-                                                                    <option value = "1">0 - 4 Gb</option>
-                                                                    <option value = "2">8 Gb</option>
-                                                                    <option value = "3">16 Gb</option>
-                                                                    <option value = "4">32 Gb</option>
-                                                                    <option value = "5">> 32 Gb</option>
-                                                                </select>
-                                                            </div>
+	                                                        <div class="col s6">
+		                                                        <input type="number" name="memori" required min="1" max="8" placeholder="Misal prioritas 3" style="width: 100%; padding: 5px;"
+		                                                        >
+	                                                        </div>
 
-                                                            <div class="col s6" style="margin-top: 10px;">
-                                                                <b>Processor</b>
-                                                            </div>
-                                                            <div class="col s6">
-                                                                <select required name="processor">
-                                                                    <option value = "" disabled selected>Kriteria Processor</option>
-                                                                    <option value = "1">Dualcore</option>
-                                                                    <option value = "3">Quadcore</option>
-                                                                    <option value = "5">Octacore</option>
-                                                                </select>
-                                                            </div>
+	                                                        <div class="col s6" style="margin-top: 10px;">
+		                                                        <b>Processor</b>
+	                                                        </div>
+	                                                        <div class="col s6">
+		                                                        <input type="number" name="processor" required min="1" max="8" placeholder="Misal prioritas 1" style="width: 100%; padding: 5px;"
+		                                                        >
+	                                                        </div>
 
-                                                            <div class="col s6" style="margin-top: 10px;">
-                                                                <b>Kamera</b>
+
+	                                                        <div class="col s6" style="margin-top: 10px;">
+                                                                <b>Kamera Depan </b>
                                                             </div>
-                                                            <div class="col s6">
-                                                                <select required name="kamera">
-                                                                    <option value = "" disabled selected>Kriteria Kamera</option>
-                                                                    <option value = "1">0 - 8 Mp</option>
-                                                                    <option value = "3">8 - 13 Mp</option>
-                                                                    <option value = "5">>13 Mp</option>
-                                                                </select>
-                                                            </div>
+	                                                        <div class="col s6">
+		                                                        <input type="number" name="kameraDepan" required min="1" max="8" placeholder="Misal prioritas 4" style="width: 100%; padding: 5px;"
+		                                                        >
+	                                                        </div>
+
+	                                                        <div class="col s6" style="margin-top: 10px;">
+		                                                        <b>Kamera Belakang</b>
+	                                                        </div>
+	                                                        <div class="col s6">
+		                                                        <input type="number" name="kameraBelakang" required min="1" max="8" placeholder="Misal prioritas 4" style="width: 100%; padding: 5px;"
+		                                                        >
+	                                                        </div>
+
+	                                                        <div class="col s6" style="margin-top: 10px;">
+		                                                        <b>Baterai </b>
+	                                                        </div>
+	                                                        <div class="col s6">
+		                                                        <input type="number" name="baterai" required min="1" max="8" placeholder="Misal prioritas 5" style="width: 100%; padding: 5px;"
+		                                                        >
+	                                                        </div>
+
+	                                                        <div class="col s6" style="margin-top: 10px;">
+		                                                        <b>Garansi </b>
+	                                                        </div>
+	                                                        <div class="col s6">
+		                                                        <input type="number" name="garansi" required min="1" max="9" placeholder="Misal prioritas 6" style="width: 100%; padding: 5px;"
+		                                                        >
+	                                                        </div>
                                                             
-                                                        </div>  
-                                                    <center><button type="submit" class="waves-effect waves-light btn" style="margin-bottom:-46px;">Hitung</button></center>	
+                                                        </div>
+
+                                                    <center><input type="text" name="jenis" value="kriteria" hidden>
+	                                                    <button type="submit" name="submit" value="SUBMIT" class="waves-effect waves-light btn" style="margin-bottom:-46px;">Hitung</button></center>
                                                 </form>       
                                             </div>
                                         </div>

@@ -150,14 +150,6 @@ include('koneksi.php');
 						</div>
 				    </li>
 				</ul>
-
-			    <?php
-			    include('fungsi.php');
-			    ?>
-			    <center><section class="content">
-				    <h2 class="ui header">Perbandingan Kriteria</h2>
-				    <?php showTabelPerbandingan('kriteria','kriteria'); ?>
-			    </section></center>
 		    </div>
 
 		    </div>
@@ -276,7 +268,6 @@ include('koneksi.php');
 												<option value = "5">5 Tahun</option>
 											</select>
 										</div>
-
 									</div>  
 								</div> 
 								<center><button name="tambah_hp" type="submit" class="waves-effect waves-light btn teal" style="margin-top: 0px;">Tambah</button></center>	

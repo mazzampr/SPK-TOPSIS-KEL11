@@ -3,28 +3,85 @@
 include('koneksi.php');
 include('fungsi.php');
 
+$harga = $_POST['harga'];
+$ram = $_POST['ram'];
+$memori = $_POST['memori'];
+$processor = $_POST['processor'];
+$kameraDepan = $_POST['kameraDepan'];
+$kameraBelakang = $_POST['kameraBelakang'];
+$baterai = $_POST['baterai'];
+$garansi = $_POST['garansi'];
+
+try {
+	$data = [
+		'Harga' => $harga,
+		'Ram' => $ram,
+		'Rom' => $memori,
+		'Processor' => $processor,
+		'KameraDepan' => $kameraDepan,
+		'KameraBelakang' => $kameraBelakang,
+		'Baterai' => $baterai,
+		'Garansi' => $garansi
+	];
+
+	foreach ($data as $nama => $priority) {
+		$query = "UPDATE kriteria SET priority = ? WHERE nama = ?";
+		$stmt = $koneksi->prepare($query);
+		$stmt->bind_param("is", $priority, $nama);
+		$stmt->execute();
+	}
+
+} catch (Exception $e) {
+	echo "Error: " . $e->getMessage();
+}
+
 
 if (isset($_POST['submit'])) {
-	$n		= getJumlahKriteria();
-	// memetakan nilai ke dalam bentuk matrik
-	// x = baris
-	// y = kolom
-	$matrik = array();
-	$urut 	= 0;
+//	$n		= getJumlahKriteria();
+//	// memetakan nilai ke dalam bentuk matrik
+//	// x = baris
+//	// y = kolom
+//	$matrik = array();
+//	$urut 	= 0;
+//
+//	for ($x=0; $x <= ($n-2) ; $x++) {
+//		for ($y=($x+1); $y <= ($n-1) ; $y++) {
+//			$urut++;
+//			$pilih	= "pilih".$urut;
+//			$bobot 	= "bobot".$urut;
+//			if ($_POST[$pilih] == 1) {
+//				$matrik[$x][$y] = $_POST[$bobot];
+//				$matrik[$y][$x] = 1 / $_POST[$bobot];
+//			} else {
+//				$matrik[$x][$y] = 1 / $_POST[$bobot];
+//				$matrik[$y][$x] = $_POST[$bobot];
+//			}
+//			inputDataPerbandinganKriteria($x,$y,$matrik[$x][$y]);
+//		}
+//	}
 
-	for ($x=0; $x <= ($n-2) ; $x++) {
-		for ($y=($x+1); $y <= ($n-1) ; $y++) {
-			$urut++;
-			$pilih	= "pilih".$urut;
-			$bobot 	= "bobot".$urut;
-			if ($_POST[$pilih] == 1) {
-				$matrik[$x][$y] = $_POST[$bobot];
-				$matrik[$y][$x] = 1 / $_POST[$bobot];
+
+	$arrayPrioritas = getPrioritas();
+	$n = count($arrayPrioritas); 
+	$matrik = array();
+
+	for ($x = 0; $x <= ($n - 2); $x++) {
+		for ($y = ($x + 1); $y <= ($n - 1); $y++) {
+			$prioritas1 = $arrayPrioritas[$x];
+			$prioritas2 = $arrayPrioritas[$y];
+
+			if ($prioritas1 == $prioritas2) {
+				$matrik[$x][$y] = 1;
+				$matrik[$y][$x] = 1;
+			} elseif ($prioritas1 > $prioritas2) {
+				$matrik[$x][$y] = 1 / ($prioritas1 - $prioritas2 + 1);
+				$matrik[$y][$x] = $prioritas1 - $prioritas2 + 1;
 			} else {
-				$matrik[$x][$y] = 1 / $_POST[$bobot];
-				$matrik[$y][$x] = $_POST[$bobot];
+				$matrik[$x][$y] = $prioritas2 - $prioritas1 + 1;
+				$matrik[$y][$x] = 1 / ($prioritas2 - $prioritas1 + 1);
 			}
-			inputDataPerbandinganKriteria($x,$y,$matrik[$x][$y]);
+
+			inputDataPerbandinganKriteria($x, $y, $matrik[$x][$y]);
 		}
 	}
 
@@ -67,6 +124,8 @@ if (isset($_POST['submit'])) {
 		inputKriteriaPV($id_kriteria,$pv[$x]);
 	}
 
+
+
 	// cek konsistensi
 	$eigenvektor = getEigenVector($jmlmpb,$jmlmnk,$n);
 	$consIndex   = getConsIndex($jmlmpb,$jmlmnk,$n);
@@ -74,6 +133,8 @@ if (isset($_POST['submit'])) {
 
 	include('output.php');
 
+}else {
+	echo "Data belum terisi.";
 }
 
 

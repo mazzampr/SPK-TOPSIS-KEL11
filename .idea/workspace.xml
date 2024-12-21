@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2545be8d-9032-4807-bc8b-d1cc7e8e7cad" name="Changes" comment="tes">
+      <change beforePath="$PROJECT_DIR$/daftar_hp.php" beforeDir="false" afterPath="$PROJECT_DIR$/daftar_hp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fungsi.php" beforeDir="false" afterPath="$PROJECT_DIR$/fungsi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hasil.php" beforeDir="false" afterPath="$PROJECT_DIR$/hasil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.php" beforeDir="false" afterPath="$PROJECT_DIR$/output.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proses.php" beforeDir="false" afterPath="$PROJECT_DIR$/proses.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rekomendasi.php" beforeDir="false" afterPath="$PROJECT_DIR$/rekomendasi.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="tes" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lucsher&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mazzampr/SPK-TOPSIS-KEL11&quot;,
+    &quot;accountId&quot;: &quot;728ee73b-00d0-4b4b-ae72-1dbc36f8c0f6&quot;
+  }
+}</component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2pwICmOTYVQDehcyeU8WoeUjgy9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "sebelumKonsul",
+    "last_opened_file_path": "C:/Users/hanif/Downloads/sppo/SPK-Pemilihan-HP-master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hanif\PhpstormProjects\SPK-TOPSIS-KEL11\Database Baru" />
+      <recent name="C:\Users\hanif\PhpstormProjects\SPK-TOPSIS-KEL11\assets\css" />
+      <recent name="C:\Users\hanif\PhpstormProjects\SPK-TOPSIS-KEL11\assets\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hanif\PhpstormProjects\SPK-TOPSIS-KEL11\Database Baru" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PS-242.23726.107" />
+        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23726.107" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2545be8d-9032-4807-bc8b-d1cc7e8e7cad" name="Changes" comment="" />
+      <created>1733670585821</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733670585821</updated>
+      <workItem from="1733670587282" duration="2882000" />
+      <workItem from="1733743160012" duration="4336000" />
+      <workItem from="1733899853366" duration="89000" />
+      <workItem from="1733903980820" duration="1202000" />
+      <workItem from="1733934676900" duration="9728000" />
+      <workItem from="1734331218138" duration="4747000" />
+      <workItem from="1734338027784" duration="3321000" />
+      <workItem from="1734672408611" duration="7289000" />
+      <workItem from="1734759254826" duration="16783000" />
+    </task>
+    <task id="LOCAL-00001" summary="tabel bobot">
+      <option name="closed" value="true" />
+      <created>1733670873644</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733670873644</updated>
+    </task>
+    <task id="LOCAL-00002" summary="tabel bobot">
+      <option name="closed" value="true" />
+      <created>1733670925264</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733670925264</updated>
+    </task>
+    <task id="LOCAL-00003" summary="tes">
+      <option name="closed" value="true" />
+      <created>1733671211453</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733671211453</updated>
+    </task>
+    <task id="LOCAL-00004" summary="tes">
+      <option name="closed" value="true" />
+      <created>1733745579446</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733745579446</updated>
+    </task>
+    <task id="LOCAL-00005" summary="tes">
+      <option name="closed" value="true" />
+      <created>1733956085392</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733956085392</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="sebelumKonsul" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tabel bobot" />
+    <MESSAGE value="tes" />
+    <option name="LAST_COMMIT_MESSAGE" value="tes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>150</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\getAlternatifNama" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>52</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\getAlternatifID" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>163</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\getAlternatifPV" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>187</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\getJumlahAlternatif" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>471</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\getConsIndex" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>461</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\getEigenVector" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>449</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\getNilaiIR" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>397</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\getNilaiPerbandinganKriteria" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>333</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\inputDataPerbandinganKriteria" />
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>479</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\getConsRatio" />
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/fungsi.php</url>
+          <line>487</line>
+          <properties>
+            <option name="className" value="" />
+            <option name="methodName" value="\showTabelPerbandingan" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
